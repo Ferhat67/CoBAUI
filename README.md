@@ -46,10 +46,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 1. Run `npm install cobaui --save` to import the framework into your project.
 2. Add the `COBAUIModule` into the `imports` array of the Angular applications _AppModule_ class in _app.module.ts_.
-    ```
+    ```typescript
     import { COBAUIModule } from 'cobaui';
     ```
-    ```javascript
+    ```typescript
     @NgModule({
       imports: [
         BrowserModule,
@@ -59,10 +59,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
     ```
 3. Initialize Adaptation Controller in _AppModule_ class by injecting the AdaptationController component provided by the COBAUI framework.
 
-    ```
+    ```typescript
     import { AdaptationController } from 'cobaui';
     ```
-    ```javascript
+    ```typescript
     export class AppModule {
      // Inject Adaptation Controller
      constructor(ac: AdaptationController) {
@@ -83,7 +83,7 @@ If the device inclination exceeds 30° or falls below -30° it is inferred, whet
 user is left-handed or right-handed.
 HandednessCP is an Angular Service, hence `@Injectable` and extends the `ContextProvider` base class.
 
-```javascript
+```typescript
 import { Injectable } from '@angular/core';
 import { ContextProvider, UpdateMethod } from 'cobaui';
 
@@ -128,7 +128,7 @@ in the applications `assets/` directory.
 It uses Angulars `HttpClient` service to access the `adaptation-rules.json` file and
 deserializes its contents as Adaptation Rules.
 
-```javascript
+```typescript
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { RuleProvider } from 'cobaui';
@@ -160,7 +160,7 @@ rule engine like _Nools_.
 Like the other components, a Rule Evaluator is an Angular Service and extends the `RuleEvaluator` base class.
 In the following an excerpt of an `NoolsRE` Rule Evaluator is depicted.
 
-```javascript
+```typescript
 import { Injectable } from '@angular/core';
 import { RuleEvaluator, ContextParam, AdaptationRule, AdaptationAction, AdaptationController  } from 'cobaui';
 import * as nools from 'nools';
@@ -222,7 +222,7 @@ In its constructor, the `AdaptationController` is injected for registration purp
 to identify this Adaptive Widget.
 To further distinguish individual instances of this widget, a `namespace` attribute can be applied.
 
-```javascript
+```typescript
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {AdaptationAction, AdaptationController, AdaptiveWidget} from 'cobaui';
 
