@@ -130,6 +130,41 @@
           }
         }
       }
+    },
+    "cobaui": {
+      "root": "projects/cobaui",
+      "sourceRoot": "projects/cobaui/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/cobaui/tsconfig.lib.json",
+            "project": "projects/cobaui/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cobaui/src/test.ts",
+            "tsConfig": "projects/cobaui/tsconfig.spec.json",
+            "karmaConfig": "projects/cobaui/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/cobaui/tsconfig.lib.json",
+              "projects/cobaui/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "cobaui-framework"

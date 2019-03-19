@@ -17,6 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "cobaui": [
+        "dist/cobaui"
+      ],
+      "cobaui/*": [
+        "dist/cobaui/*"
+      ]
+    }
   }
 }
