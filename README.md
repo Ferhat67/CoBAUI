@@ -45,7 +45,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Integration into an Angular application
 
 1. Run `npm install cobaui --save` to import the framework into your project.
-2. Add the `CoBAUIModule` into the `imports` array of the Angular applications _AppModule_ class in _app.module.ts_.
+2. Add the `CoBAUIModule` into the `imports` array of the Angular applications **_AppModule_** class in _app.module.ts_.
     ```typescript
     import { CoBAUIModule } from 'cobaui';
     ```
@@ -317,3 +317,35 @@ Adaptation Controller component.
     }
     ```
     Note that Adaptive Widget components are registered automatically by Dependency Injection.
+    
+Also note that some components (Context Provider, Rule Provider, Rule Evaluator) are implemented as Angular Services. Therefore, these must be included in the `providers` array of the applications **_AppModule_**. Adaptive Widget components are Angular UI Components and must therefore be included in the `declarations` array.
+
+```typescript
+@NgModule({
+  declarations: [
+    AppComponent,
+    // include Adaptive Widget components
+    AppShellAWComponent,
+    FilterListAWComponent,
+    HideableButtonAWComponent
+  ],
+  imports: [
+    BrowserModule,
+    CoBAUIModule
+  ],
+  providers: [
+    // include Context Providers
+    NetworkCP,
+    UserInfoCP,
+    CameraInfoCP,
+    HandednessCP,
+    ExperienceCP,
+    AmbientLightCP,
+    // Include Rule Provider
+    LocalRP,
+    // Inclide Rule Evaluator
+    NoolsRE
+  ],
+  bootstrap: [AppComponent]
+})
+```
