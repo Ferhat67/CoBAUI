@@ -7,6 +7,6 @@ import { AdaptationController } from './core/adaptation-controller';
   exports: [],
   providers: [AdaptationController]
 })
-export class COBAUIModule {
+export class CoBAUIModule {
 
 }

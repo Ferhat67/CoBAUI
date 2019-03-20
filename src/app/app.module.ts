@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { COBAUIModule } from 'cobaui';
+import { CoBAUIModule } from 'cobaui';
 import { AdaptationController } from 'cobaui';
 
 @NgModule({
@@ -11,7 +11,7 @@ import { AdaptationController } from 'cobaui';
   ],
   imports: [
     BrowserModule,
-    COBAUIModule // Import CBAUI Framework into application
+    CoBAUIModule // Import CBAUI Framework into application
   ],
   providers: [],
   bootstrap: [AppComponent]
