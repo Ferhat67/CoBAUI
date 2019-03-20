@@ -1,9 +1,9 @@
-# COBAUI Framework
+# CoBAUI Framework
 ## Component-Based Adaptive User Interface
 
 This framework aims to facilitate the development of adaptive UIs 
 by introducing a modular architecture to support UI adaptation at widget-level.
-COBAUI incorporates different types of components to address different concerns of an adaptive UI.
+CoBAUI incorporates different types of components to address different concerns of an adaptive UI.
 
 The following components are defined by the framework.
 * **Context Provider**
@@ -24,7 +24,7 @@ The following components are defined by the framework.
   * Used to define and encapsulate the adaptive functionality for a UI portion.
   * Listens for Adaptation Action events and adapts at runtime.
 
-The COBAUI framework contains an abstract base class definition for each component type, providing common
+The CoBAUI framework contains an abstract base class definition for each component type, providing common
 functionality and ensuring compatibility of components.
 Concrete implementation for these components must be implemented by the actual Angular application 
 by inheriting and extending the base classes.
@@ -45,19 +45,19 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Integration into an Angular application
 
 1. Run `npm install cobaui --save` to import the framework into your project.
-2. Add the `COBAUIModule` into the `imports` array of the Angular applications _AppModule_ class in _app.module.ts_.
+2. Add the `CoBAUIModule` into the `imports` array of the Angular applications _AppModule_ class in _app.module.ts_.
     ```typescript
-    import { COBAUIModule } from 'cobaui';
+    import { CoBAUIModule } from 'cobaui';
     ```
     ```typescript
     @NgModule({
       imports: [
         BrowserModule,
-        COBAUIModule // Import CBAUI Framework into application
+        CoBAUIModule // Import CBAUI Framework into application
       ]
     })
     ```
-3. Initialize Adaptation Controller in _AppModule_ class by injecting the AdaptationController component provided by the COBAUI framework.
+3. Initialize Adaptation Controller in _AppModule_ class by injecting the AdaptationController component provided by the CoBAUI framework.
 
     ```typescript
     import { AdaptationController } from 'cobaui';
@@ -150,7 +150,7 @@ export class LocalRP extends RuleProvider{
 Rules are then published to observers (in particular Adaptation Controller).
 The Rule Provider is implemented as Angular Service and as such can be 
 injected by other Angular
-Components and Services (i.e. other COBAUI components).
+Components and Services (i.e. other CoBAUI components).
 
 
 #### Rule Evaluator
@@ -217,7 +217,7 @@ Adaptive Widgets extend UI Components of Angular with functionality to adapt at 
 Like regular Angular Components, Adaptive Widgets can have `@Input` attributes and `@Output` events
 to communicate with other UI components and be configurable.
 The `HideableButtonAWComponent` shown below extends the `AdaptiveWidget` base class provided
-by the COBAUI framework.
+by the CoBAUI framework.
 In its constructor, the `AdaptationController` is injected for registration purposes and a name is chosen
 to identify this Adaptive Widget.
 To further distinguish individual instances of this widget, a `namespace` attribute can be applied.
@@ -239,7 +239,6 @@ export class HideableButtonAWComponent extends AdaptiveWidget{
   @Output('click') onClick: EventEmitter<any> = new EventEmitter();
 
   visible: boolean = true;
-  classes = {"hidden": false};
 
   constructor(ac: AdaptationController) {
     super(ac, "HideableButtonAW");
@@ -294,7 +293,7 @@ based on its name (`target`) and its namespace (`scope`).
 
 ## Setup
 
-In order for the components to form an coherent and operable adaptive UI, they must be registered with an 
+In order for the components to form a coherent and operable adaptive UI, they must be registered with an 
 Adaptation Controller component.
 
 1. Go to the constructor of the AppModule class where the `AdaptationController` is injected.
